@@ -4,7 +4,6 @@ package doc
 
 import (
 	"bytes"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"testing"
@@ -85,7 +84,7 @@ func TestGenRSTTree(t *testing.T) {
 }
 
 func BenchmarkGenReSTToFile(b *testing.B) {
-	file, err := ioutil.TempFile("", "")
+	file, err := os.CreateTemp("", "")
 	if err != nil {
 		b.Fatal(err)
 	}
