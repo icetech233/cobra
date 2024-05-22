@@ -156,7 +156,7 @@ func TestManPrintFlagsHidesShortDeprecated(t *testing.T) {
 func TestGenManTree(t *testing.T) {
 	c := &cobra.Command{Use: "do [OPTIONS] arg1 arg2"}
 	header := &GenManHeader{Section: "2"}
-	tmpdir, err := ioutil.TempDir("", "test-gen-man-tree")
+	tmpdir, err := os.MkdirTemp("", "test-gen-man-tree")
 	if err != nil {
 		t.Fatalf("Failed to create tmpdir: %s", err.Error())
 	}
